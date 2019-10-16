@@ -1,0 +1,73 @@
+func saluer (prenom: String ) {
+    print ("\(prenom)")
+}
+
+func calculerAge( anneeNaissance: UInt ) -> UInt {
+    return 2019 - anneeNaissance
+}
+
+func calculerAgeDe( nom: String, anneeNaissance: UInt ) -> (String, UInt) {
+    let age = 2019 - anneeNaissance
+    return (nom, age)
+}
+
+print (calculerAgeDe(nom: "John", anneeNaissance: 1970))
+
+let mary = calculerAgeDe(nom: "Mary", anneeNaissance: 1990)
+
+print (mary.0)
+print (mary.1)
+
+var maFonction = calculerAgeDe
+
+let sylvain = maFonction("Sylvain", 1980)
+
+print (sylvain.0)
+print (sylvain.1)
+
+let calculerMinMax = [ 1, 42, 5, 21 ]
+var maxNumber = Int()
+
+for number in calculerMinMax {
+    maxNumber = max(maxNumber, number as Int)
+    }
+
+print("the max number is \(maxNumber)")
+
+func calculerMinMax( _ values: Int... ) -> (min: Int, sum: Int, average: Double) {
+    if values count == 0 {
+        return (0,0,0,0.0)
+    }
+
+    var tempMin = values[0]
+    var tempMax = values[0]
+    var tempSum = 0
+    var tempAverage = 0.0
+
+    for val in values {
+        if val < tempMin {
+            tempMin = val
+        }
+        else if val > tempMax {
+            tempMax = val
+        }
+        tempsSum += val
+    
+        }
+    
+        tempAverage = Double(tempSum) / Double(values.count)
+    
+        return (tempMin, temMax tempSum, tempAverage)
+}
+
+var data = calculerMinMax(20, 73, 44, 21, 8, 31, 99)
+
+print (data.min)
+print (data.max)
+print (data.sum)
+print (data.average)
+
+var maFonction2: (Int...) -> (Int, Int, Int, Double) = calculerMinMax
+var data2 = maFonction2(23, 44, 65, 173, 1, -76, 271, 836, 91)
+
+print (data2.0)
